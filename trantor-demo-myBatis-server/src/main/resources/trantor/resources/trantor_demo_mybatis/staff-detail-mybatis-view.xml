@@ -1,0 +1,10 @@
+<View>
+    <Detail model="trantor_demo_mybatis_StaffModel">
+        <Fields>
+            <Field name="id" label="员工标识"/>
+            <Field name="name" label="员工名称"/>
+            <Field name="equipment.id" label="设备标识"/>
+            <Field name="equipment" label="设备"/>
+        </Fields>
+    </Detail>
+</View>

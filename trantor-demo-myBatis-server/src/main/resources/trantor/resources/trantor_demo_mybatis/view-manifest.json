@@ -1,0 +1,74 @@
+[
+  {
+    "forModel": "trantor_demo_mybatis_CompanyModel",
+    "isDefault": true,
+    "key": "Company_List",
+    "name": "公司 列表",
+    "template": "company-list-view.xml",
+    "type": "List"
+  },
+  {
+    "forModel": "trantor_demo_mybatis_CompanyModel",
+    "isDefault": false,
+    "key": "Company_Form",
+    "name": "公司 表单",
+    "template": "company-form-view.xml",
+    "type": "Form"
+  },
+  {
+    "forModel": "trantor_demo_mybatis_StaffModel",
+    "isDefault": true,
+    "key": "Staff_List",
+    "name": "员工 列表",
+    "template": "staff-list-view.xml",
+    "type": "List"
+  },
+  {
+    "forModel": "trantor_demo_mybatis_StaffModel",
+    "isDefault": false,
+    "key": "Staff_Form",
+    "name": "员工 表单",
+    "template": "staff-form-view.xml",
+    "type": "Form"
+  },
+  {
+    "forModel": "trantor_demo_mybatis_CompanyModel",
+    "isDefault": false,
+    "key": "Company_List_MyBatis",
+    "name": "公司 列表 MyBatis",
+    "template": "company-list-mybatis-view.xml",
+    "type": "List"
+  },
+  {
+    "forModel": "trantor_demo_mybatis_CompanyModel",
+    "isDefault": false,
+    "key": "Company_Form_MyBatis",
+    "name": "公司 表单 MyBatis",
+    "template": "company-form-mybatis-view.xml",
+    "type": "Form"
+  },
+  {
+    "forModel": "trantor_demo_mybatis_StaffModel",
+    "isDefault": false,
+    "key": "Staff_List_MyBatis",
+    "name": "员工 列表 MyBatis",
+    "template": "staff-list-mybatis-view.xml",
+    "type": "List"
+  },
+  {
+    "forModel": "trantor_demo_mybatis_StaffModel",
+    "isDefault": false,
+    "key": "Staff_Form_MyBatis",
+    "name": "员工 表单 MyBatis",
+    "template": "staff-form-mybatis-view.xml",
+    "type": "Form"
+  },
+  {
+    "forModel": "trantor_demo_mybatis_StaffModel",
+    "isDefault": false,
+    "key": "Staff_Detail_MyBatis",
+    "name": "员工 详情 MyBatis",
+    "template": "staff-detail-mybatis-view.xml",
+    "type": "Detail"
+  }
+]

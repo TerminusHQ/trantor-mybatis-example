@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.terminus.trantor.demo.myBatis.mapper.StaffMapper">
+
+    <resultMap id="StaffMap" type="io.terminus.trantor.demo.myBatis.model.StaffModel">
+        <id column="staff_id" property="id"/>
+        <result column="staff_name" property="name"/>
+        <result column="staff_createdAt" property="createdAt"/>
+        <result column="staff_updatedAt" property="updatedAt"/>
+        <association column="staff_StaffEquipmentId" property="equipment" javaType="io.terminus.trantor.demo.myBatis.model.EquipmentModel"
+                     resultMap="EquipmentMap"/>
+    </resultMap>
+
+    <resultMap id="EquipmentMap" type="io.terminus.trantor.demo.myBatis.model.EquipmentModel">
+        <id column="equipment_id" property="id"/>
+        <result column="equipment_name" property="name"/>
+        <result column="equipment_createdAt" property="createdAt"/>
+        <result column="equipment_updatedAt" property="updatedAt"/>
+        <association column="staff" property="staff" javaType="io.terminus.trantor.demo.myBatis.model.StaffModel" resultMap="StaffMap"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="io.terminus.trantor.demo.myBatis.model.StaffModel">
+        INSERT INTO trantor_demo_mybatis__staff_model (id, isDeleted, updatedAt, name, createdAt, CreatedBy, StaffEquipmentId, UpdatedBy)
+        VALUES (#{id}, #{isDeleted}, #{updatedAt}, #{name}, #{createdAt}, #{createdBy.id}, #{equipment.id}, #{updatedBy.id});
+    </insert>
+
+    <update id="update" parameterType="io.terminus.trantor.demo.myBatis.model.StaffModel">
+        UPDATE trantor_demo_mybatis__staff_model AS staff
+        SET staff.name             = #{name},
+            staff.updatedAt        = #{updatedAt},
+            staff.StaffEquipmentId = #{equipment.id}
+        WHERE staff.id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="io.terminus.trantor.demo.myBatis.model.StaffModel">
+        DELETE
+        FROM trantor_demo_mybatis__staff_model
+        WHERE id = #{id};
+    </delete>
+
+    <select id="findAll" resultMap="StaffMap">
+        SELECT staff.id AS staff_id,
+            staff.name AS staff_name,
+            staff.createdAt AS staff_createdAt,
+            staff.updatedAt AS staff_updatedAt,
+            staff.StaffEquipmentId AS staff_StaffEquipmentId,
+            equipment.id AS equipment_id,
+            equipment.name AS equipment_name,
+            equipment.createdAt AS equipment_createdAt,
+            equipment.updatedAt AS equipment_updatedAt
+        FROM trantor_demo_mybatis__staff_model AS staff
+                 LEFT JOIN trantor_demo_mybatis__equipment_model AS equipment ON staff.StaffEquipmentId = equipment.id
+        LIMIT #{no}, #{size};
+    </select>
+
+    <select id="findById" resultMap="StaffMap">
+        SELECT staff.id AS staff_id,
+            staff.name AS staff_name,
+            staff.createdAt AS staff_createdAt,
+            staff.updatedAt AS staff_updatedAt,
+            staff.StaffEquipmentId AS equipment_id
+        FROM trantor_demo_mybatis__staff_model AS staff
+        WHERE staff.id = ${staffId}
+    </select>
+
+
+    <select id="findByCompanyId" resultMap="StaffMap">
+        SELECT staff.id AS staff_id,
+            staff.name AS staff_name,
+            staff.createdAt AS staff_createdAt,
+            staff.updatedAt AS staff_updatedAt,
+            staff.StaffEquipmentId AS staff_StaffEquipmentId,
+            equipment.id AS equipment_id,
+            equipment.name AS equipment_name,
+            equipment.createdAt AS equipment_createdAt,
+            equipment.updatedAt AS equipment_updatedAt
+        FROM trantor_demo_mybatis__staff_model AS staff
+                 LEFT JOIN trantor_demo_mybatis__equipment_model AS equipment ON staff.StaffEquipmentId = equipment.id
+        WHERE CompanyStaffId = #{companyId};
+    </select>
+
+    <select id="getId" resultType="java.lang.Long">
+        SELECT max(id)
+        FROM trantor_demo_mybatis__staff_model;
+    </select>
+
+    <select id="updateCompanyIdByStaffId" resultMap="StaffMap">
+        UPDATE trantor_demo_mybatis__staff_model AS staff
+        SET staff.CompanyStaffId = #{companyId}
+        WHERE staff.id IN
+        <foreach collection="ids" item="item" index="index" open="(" separator="," close=")">
+            #{item}
+        </foreach>
+    </select>
+
+</mapper>

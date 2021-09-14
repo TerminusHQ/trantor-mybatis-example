@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.terminus.trantor.demo.myBatis</groupId>
+    <artifactId>trantor-demo-myBatis</artifactId>
+    <packaging>pom</packaging>
+    <version>0.0.1-SNAPSHOT</version>
+    <modules>
+        <module>trantor-demo-myBatis-api</module>
+        <module>trantor-demo-myBatis-server</module>
+    </modules>
+
+    <properties>
+        <java.version>1.8</java.version>
+        <maven.compiler.source>${java.version}</maven.compiler.source>
+        <maven.compiler.target>${java.version}</maven.compiler.target>
+        <trantor.version>0.9.3-SNAPSHOT</trantor.version>
+        <trantor.plugin.version>1.0.1-SNAPSHOT</trantor.plugin.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.terminus.trantor</groupId>
+                <artifactId>api</artifactId>
+                <version>${trantor.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.terminus.trantor</groupId>
+                <artifactId>framework</artifactId>
+                <version>${trantor.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>io.terminus.trantor</groupId>
+                    <artifactId>trantor-metadata-maven-plugin</artifactId>
+                    <version>${trantor.plugin.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="io.terminus.trantor.demo.myBatis.mapper.CompanyMapper">
+
+    <resultMap id="CompanyMap" type="io.terminus.trantor.demo.myBatis.model.CompanyModel">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="createdAt" property="createdAt"/>
+        <result column="updatedAt" property="updatedAt"/>
+        <collection property="staffs" javaType="java.util.ArrayList" ofType="io.terminus.trantor.demo.myBatis.model.StaffModel"
+                    select="io.terminus.trantor.demo.myBatis.mapper.StaffMapper.findByCompanyId" column="{companyId=id}">
+        </collection>
+    </resultMap>
+
+    <insert id="insert" parameterType="io.terminus.trantor.demo.myBatis.model.CompanyModel">
+        INSERT INTO trantor_demo_mybatis__company_model (id, isDeleted, updatedAt, name, createdAt, CreatedBy, UpdatedBy)
+        VALUES (#{id}, #{isDeleted}, #{updatedAt}, #{name}, #{createdAt}, #{createdBy.id}, #{updatedBy.id});
+    </insert>
+
+    <update id="update" parameterType="io.terminus.trantor.demo.myBatis.model.CompanyModel">
+        UPDATE trantor_demo_mybatis__company_model AS company
+        SET company.name      = #{name},
+            company.updatedAt = #{updatedAt}
+        WHERE company.id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="io.terminus.trantor.demo.myBatis.model.CompanyModel">
+        DELETE
+        FROM trantor_demo_mybatis__company_model
+        WHERE id = #{id};
+    </delete>
+
+    <select id="findAll" resultMap="CompanyMap">
+        SELECT id, name, createdAt, updatedAt
+        FROM trantor_demo_mybatis__company_model
+        LIMIT #{no}, #{size};
+    </select>
+
+    <select id="getId" resultType="java.lang.Long">
+        SELECT max(id)
+        FROM trantor_demo_mybatis__company_model;
+    </select>
+</mapper>

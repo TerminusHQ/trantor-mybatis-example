@@ -1,0 +1,14 @@
+<View>
+    <Form model="trantor_demo_mybatis_StaffModel">
+        <Fields>
+            <Field name="name"/>
+            <Field name="equipment"/>
+        </Fields>
+        <Actions>
+            <Action type="Submit" after="GoBack" :show="this.data.id == null" label="保存"
+                    action="trantor_demo_mybatis_StaffModel_StaffAction::createByMyBatis"/>
+            <Action type="Submit" after="GoBack" :show="this.data.id != null" label="更新"
+                    action="trantor_demo_mybatis_StaffModel_StaffAction::updateByMyBatis"/>
+        </Actions>
+    </Form>
+</View>

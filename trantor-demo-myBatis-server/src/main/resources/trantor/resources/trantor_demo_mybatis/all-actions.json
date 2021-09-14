@@ -1,0 +1,146 @@
+[
+  {
+    "forModel": "trantor_demo_mybatis_CompanyModel",
+    "key": "listView",
+    "name": "公司列表",
+    "type": "View",
+    "extra": {
+      "dataSource": "Action",
+      "target": "trantor_demo_mybatis_CompanyModel_Company_List",
+      "actionKey": "trantor_demo_mybatis_CompanyModel_CompanyMultiDataAction"
+    }
+  },
+  {
+    "forModel": "trantor_demo_mybatis_CompanyModel",
+    "key": "createView",
+    "name": "新增公司",
+    "type": "View",
+    "extra": {
+      "dataSource": "Static",
+      "openViewType": "Self",
+      "target": "trantor_demo_mybatis_CompanyModel_Company_Form"
+    }
+  },
+  {
+    "forModel": "trantor_demo_mybatis_CompanyModel",
+    "key": "editView",
+    "name": "编辑公司",
+    "type": "View",
+    "extra": {
+      "dataSource": "DataStore",
+      "openViewType": "self",
+      "target": "trantor_demo_mybatis_CompanyModel_Company_Form"
+    }
+  },
+  {
+    "forModel": "trantor_demo_mybatis_StaffModel",
+    "key": "listView",
+    "name": "员工列表",
+    "type": "View",
+    "extra": {
+      "dataSource": "Action",
+      "target": "trantor_demo_mybatis_StaffModel_Staff_List",
+      "actionKey": "trantor_demo_mybatis_StaffModel_StaffMultiDataAction"
+    }
+  },
+  {
+    "forModel": "trantor_demo_mybatis_StaffModel",
+    "key": "createView",
+    "name": "新增员工",
+    "type": "View",
+    "extra": {
+      "dataSource": "Static",
+      "openViewType": "Self",
+      "target": "trantor_demo_mybatis_StaffModel_Staff_Form"
+    }
+  },
+  {
+    "forModel": "trantor_demo_mybatis_StaffModel",
+    "key": "editView",
+    "name": "编辑员工",
+    "type": "View",
+    "extra": {
+      "dataSource": "DataStore",
+      "openViewType": "self",
+      "target": "trantor_demo_mybatis_StaffModel_Staff_Form"
+    }
+  },
+  {
+    "forModel": "trantor_demo_mybatis_CompanyModel",
+    "key": "listMyBatisView",
+    "name": "公司列表MyBatis",
+    "type": "View",
+    "extra": {
+      "dataSource": "Action",
+      "target": "trantor_demo_mybatis_CompanyModel_Company_List_MyBatis",
+      "actionKey": "trantor_demo_mybatis_CompanyModel_CompanyMultiDataActionByMyBatis"
+    }
+  },
+  {
+    "forModel": "trantor_demo_mybatis_CompanyModel",
+    "key": "createMyBatisView",
+    "name": "新增公司MyBatis",
+    "type": "View",
+    "extra": {
+      "dataSource": "Static",
+      "openViewType": "Self",
+      "target": "trantor_demo_mybatis_CompanyModel_Company_Form_MyBatis"
+    }
+  },
+  {
+    "forModel": "trantor_demo_mybatis_CompanyModel",
+    "key": "editMyBatisView",
+    "name": "编辑公司MyBatis",
+    "type": "View",
+    "extra": {
+      "dataSource": "DataStore",
+      "openViewType": "self",
+      "target": "trantor_demo_mybatis_CompanyModel_Company_Form_MyBatis"
+    }
+  },
+  {
+    "forModel": "trantor_demo_mybatis_StaffModel",
+    "key": "listMyBatisView",
+    "name": "员工列表MyBatis",
+    "type": "View",
+    "extra": {
+      "dataSource": "Action",
+      "target": "trantor_demo_mybatis_StaffModel_Staff_List_MyBatis",
+      "actionKey": "trantor_demo_mybatis_StaffModel_StaffMultiDataActionByMyBatis"
+    }
+  },
+  {
+    "forModel": "trantor_demo_mybatis_StaffModel",
+    "key": "createMyBatisView",
+    "name": "新增员工MyBatis",
+    "type": "View",
+    "extra": {
+      "dataSource": "Static",
+      "openViewType": "Self",
+      "target": "trantor_demo_mybatis_StaffModel_Staff_Form_MyBatis"
+    }
+  },
+  {
+    "forModel": "trantor_demo_mybatis_StaffModel",
+    "key": "editMyBatisView",
+    "name": "编辑员工MyBatis",
+    "type": "View",
+    "extra": {
+      "dataSource": "DataStore",
+      "openViewType": "self",
+      "target": "trantor_demo_mybatis_StaffModel_Staff_Form_MyBatis"
+    }
+  },
+  {
+    "forModel": "trantor_demo_mybatis_StaffModel",
+    "key": "detailMyBatisView",
+    "name": "编辑员工MyBatis",
+    "type": "View",
+    "extra": {
+      "actionKey": "trantor_demo_mybatis_StaffModel_StaffSingleDataActionByMyBatis",
+      "dataSource": "Action",
+      "openViewType": "Self",
+      "target": "trantor_demo_mybatis_StaffModel_Staff_Detail_MyBatis"
+    }
+  }
+]

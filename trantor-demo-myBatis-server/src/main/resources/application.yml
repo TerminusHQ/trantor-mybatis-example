@@ -1,0 +1,20 @@
+spring:
+  profiles:
+    include: >
+      trantor
+  main:
+    allow-bean-definition-overriding: true
+  dataSource:
+    url: jdbc:mysql://localhost:3307/trantor?useUnicode=true&characterEncoding=UTF-8&useSSL=false&useAffectedRows=true
+    username: root
+    password: password
+
+trantor:
+  mainModule: io.terminus.trantor.demo.myBatis.Module
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+
+logging:
+  level:
+    io.terminus.trantor.demo.myBatis.mapper: debug
