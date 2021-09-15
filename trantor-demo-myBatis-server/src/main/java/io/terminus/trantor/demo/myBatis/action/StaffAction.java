@@ -44,8 +44,6 @@ public class StaffAction {
 
     @TAction(modelClass = StaffModel.class)
     public void createByMyBatis(StaffModel staffModel) {
-        // long id = staffMapper.getId();
-        // staffModel.setId(id + 1);
         staffModel.setId(dsClient.nextId(StaffModel.class));
         staffModel.setCreatedAt(new Date());
         staffModel.setUpdatedAt(new Date());

@@ -53,9 +53,6 @@ public class CompanyAction {
     @TAction(modelClass = CompanyModel.class)
     @Transactional
     public void createByMyBatis(CompanyModel companyModel) {
-        // 插入company数据
-        // long id = companyMapper.getId();
-        // companyModel.setId(id + 1);
         companyModel.setId(dsClient.nextId(CompanyModel.class));
         companyModel.setCreatedAt(new Date());
         companyModel.setUpdatedAt(new Date());
